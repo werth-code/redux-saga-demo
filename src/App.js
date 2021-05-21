@@ -1,23 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react'
+import Counter from "./Counter"
+import { useSelector } from 'react-redux'
 
 function App() {
+
+  // imported through redux so that we can share this state.
+  const count = useSelector(state => state.counter.count)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ backgroundColor: 'lightGreen' }} className="App">
+      <h1>Hello There!</h1>
+      <h2>The Count: {count}</h2>
+      <Counter />
     </div>
   );
 }
